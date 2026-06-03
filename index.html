@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Maldición del Susurro</title>
+
+    <link rel="stylesheet" href="./style/index.css">
+</head>
+
+<body>
+
+    <!-- Niebla -->
+    <div class="fog fog1"></div>
+    <div class="fog fog2"></div>
+
+    <!-- Audio Ambiente -->
+    <audio id="ambientAudio" loop>
+        <source src="audio/ambient.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Pantalla Inicial -->
+    <section id="startScreen" class="screen active">
+
+        <div class="title-container">
+
+            <h1 class="game-title">
+                LA MALDICIÓN DEL SUSURRO
+            </h1>
+
+            <p class="subtitle">
+                Una historia de terror que solo los valientes descubrirán...
+            </p>
+
+            <button id="startBtn" class="horror-btn">
+                Iniciar Historia
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- Instrucciones -->
+    <section id="instructionsScreen" class="screen">
+
+        <div class="panel">
+
+            <h2>Instrucciones</h2>
+
+            <ul>
+                <li>Lee la historia atentamente.</li>
+                <li>Para desbloquear capítulos deberás superar desafíos.</li>
+                <li>Selecciona únicamente las palabras correctas.</li>
+                <li>Si te equivocas perderás vidas.</li>
+                <li>Completa todos los niveles para conocer el final.</li>
+            </ul>
+
+            <button id="continueBtn" class="horror-btn">
+                Comenzar
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- Historia -->
+    <section id="storyScreen" class="screen">
+
+        <div class="story-container">
+
+            <div class="story-header">
+
+                <h2 id="chapterTitle">
+                    Historia
+                </h2>
+
+            </div>
+
+            <div class="manga-viewer">
+
+                <img
+                    id="mangaImage"
+                    src="./pages/pag1.png"
+                    alt="Página Manga">
+
+            </div>
+
+            <div class="story-controls">
+
+                <button id="prevPageBtn" class="horror-btn">
+                    ◀ Anterior
+                </button>
+
+                <span id="pageCounter">
+                    Página 1
+                </span>
+
+                <button id="nextPageBtn" class="horror-btn">
+                    Siguiente ▶
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Modal Historia -->
+    <div id="storyModal" class="modal hidden">
+
+        <div class="modal-content">
+
+            <h2 id="modalTitle">
+                Continúa la aventura
+            </h2>
+
+            <p id="modalText">
+                Para descubrir el resto de la historia deberás superar un desafío.
+            </p>
+
+            <button id="modalBtn" class="horror-btn">
+                Aceptar
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Juego -->
+    <section id="gameScreen" class="screen">
+
+        <div class="game-header">
+
+            <div class="level-box">
+
+                <span id="currentLevel">
+                    Nivel Fácil
+                </span>
+
+            </div>
+
+            <div id="livesContainer">
+
+                <span class="heart">❤️</span>
+                <span class="heart">❤️</span>
+                <span class="heart">❤️</span>
+                <span class="heart">❤️</span>
+                <span class="heart">❤️</span>
+
+            </div>
+
+            <div class="score-box">
+
+                Puntos:
+                <span id="score">
+                    0
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="objective-box">
+
+            <h3 id="objectiveText">
+                Selecciona las palabras GRAVES
+            </h3>
+
+        </div>
+
+        <div id="gameArea">
+
+            <!-- Burbujas generadas dinámicamente -->
+
+        </div>
+
+    </section>
+
+    <!-- Victoria -->
+    <section id="victoryScreen" class="screen">
+
+        <div class="panel">
+
+            <h1>
+                Has sobrevivido...
+            </h1>
+
+            <p>
+                Una nueva parte de la historia ha sido desbloqueada.
+            </p>
+
+            <button id="continueStoryBtn"
+                class="horror-btn">
+
+                Continuar Historia
+
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- Derrota -->
+    <section id="gameOverScreen" class="screen">
+
+        <div class="panel">
+
+            <h1 class="danger">
+                Has caído en la oscuridad
+            </h1>
+
+            <p>
+                Te has quedado sin vidas.
+            </p>
+
+            <button id="restartBtn"
+                class="horror-btn">
+
+                Reintentar
+
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- Final -->
+    <section id="finalScreen" class="screen">
+
+        <div class="panel">
+
+            <h1>
+                Fin de la Historia
+            </h1>
+
+            <p>
+                Has descubierto el secreto oculto tras la maldición.
+            </p>
+
+            <button id="playAgainBtn"
+                class="horror-btn">
+
+                Volver a jugar
+
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- Pantalla de Transición -->
+    <div id="transitionOverlay"
+        class="transition-overlay hidden">
+
+        <h1 id="transitionText">
+            Nivel Completado
+        </h1>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="./js/levels.js"></script>
+    <script src="./js/lives.js"></script>
+    <script src="./js/story.js"></script>
+    <script src="./js/game.js"></script>
+    <script src="./js/app.js"></script>
+
+</body>
+
+</html>
