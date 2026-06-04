@@ -142,7 +142,7 @@ function reproducirDaño() {
 
         const audio = new Audio();
 
-        audio.src = "audio/hit.mp3";
+        audio.src = "./sounds/scream.mp3";
 
         audio.volume = 0.4;
 

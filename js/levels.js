@@ -1,29 +1,61 @@
 /* ==========================================
+   PALABRAS AGUDAS
+========================================== */
+
+const palabrasAgudas = [
+
+    "lugar",
+    "habitación",
+    "cruzar",
+    "saber",
+    "maldición",
+    "mamá", 
+    "compró", 
+    "placer", 
+    "edad",
+    "maldad",
+    "crueldad",
+    "mutilación",
+    "alucinación",
+    "aparición",
+    "ansiedad",
+    "temblor",
+    "aquí",
+    "entrar",
+    "iré",
+    "visión"
+
+];
+
+
+
+/* ==========================================
    PALABRAS GRAVES
 ========================================== */
 
 const palabrasGraves = [
 
-    "casa",
-    "árbol",
-    "lápiz",
-    "joven",
-    "mesa",
-    "azúcar",
-    "fácil",
-    "difícil",
-    "camino",
-    "cuaderno",
-    "robot",
-    "reloj",
-    "doctor",
-    "papel",
-    "túnel",
-    "virus",
-    "hotel",
-    "césped",
-    "cárcel",
-    "mármol"
+    "Bonita",
+    "Padre",
+    "Casa",
+    "Cuarto",
+    "precio",
+    "Vecinos",
+    "Ventana",
+    "Madre",
+    "Hermoso",
+    "Espero",
+    "Sueño",
+    "Noche",
+    "Puerta",
+    "Loca",
+    "Barata",
+    "Cielo",
+    "Árbol",
+    "Sangre",
+    "Muerte",
+    "Oscura",
+    "Luz"
 
 ];
 
@@ -33,26 +65,23 @@ const palabrasGraves = [
 
 const palabrasEsdrujulas = [
 
-    "música",
-    "teléfono",
+    "visítenos",
+    "público",
+    "árboles",
+    "moviéndose",
+    "deberíamos",
+    "déjame",
     "murciélago",
-    "rápido",
-    "esdrújula",
-    "brújula",
-    "matemáticas",
-    "fantástico",
-    "pájaro",
-    "película",
-    "química",
-    "histórico",
-    "océano",
-    "científico",
-    "trágico",
-    "último",
+    "pánico",
+    "macabro",
+    "tenebroso",
     "mágico",
-    "lógico",
-    "cómico",
-    "sílaba"
+    "diabólico",
+    "cráneo",
+    "maléfico",
+    "lámpara",
+    "rápido",
+    "pálido"
 
 ];
 
@@ -92,40 +121,67 @@ const sobreesdrujulas = [
    DISTRACTORES
 ========================================== */
 
-const distractores = [
 
-    "amor",
-    "jugar",
-    "correr",
-    "felicidad",
-    "caminar",
-    "estrella",
-    "bosque",
-    "noche",
-    "sombras",
-    "miedo",
-    "sangre",
-    "espejo",
-    "terror",
-    "susurro",
-    "fantasma",
-    "oscuro",
-    "silencio",
-    "puerta",
-    "ventana",
-    "escalera",
-    "cementerio",
-    "luna",
-    "perdido",
-    "extraño",
-    "misterio"
+
+/* ==========================================
+   NIVELES PALABRAS AGUDAS
+========================================== */
+
+const nivelesAgudas = [
+
+    {
+        id: 1,
+
+        nombre: "AGUDAS - FÁCIL",
+
+        objetivo: "Selecciona las palabras AGUDAS",
+
+        velocidad: 14000,
+
+        cantidadCorrectas: 8,
+
+        cantidadDistractores: 6,
+
+        puntosNecesarios: 6
+    },
+
+    {
+        id: 2,
+
+        nombre: "AGUDAS - INTERMEDIO",
+
+        objetivo: "Selecciona las palabras AGUDAS",
+
+        velocidad: 10000,
+
+        cantidadCorrectas: 10,
+
+        cantidadDistractores: 10,
+
+        puntosNecesarios: 8
+    },
+
+    {
+        id: 3,
+
+        nombre: "AGUDAS - RÁPIDO",
+
+        objetivo: "Selecciona las palabras AGUDAS",
+
+        velocidad: 7000,
+
+        cantidadCorrectas: 14,
+
+        cantidadDistractores: 12,
+
+        puntosNecesarios: 10
+    }
 
 ];
 
 /* ==========================================
    NIVELES PALABRAS GRAVES
 ========================================== */
-
 const nivelesGraves = [
 
     {
@@ -177,6 +233,8 @@ const nivelesGraves = [
     }
 
 ];
+
+
 
 /* ==========================================
    NIVELES PALABRAS ESDRÚJULAS
@@ -234,27 +292,6 @@ const nivelesEsdrujulas = [
 
 ];
 
-
-const nivelesSobreesdrujulas = [
-    {
-        nombre: "Infierno I",
-        objetivo: "Selecciona las palabras SOBREEESDRÚJULAS",
-        puntosNecesarios: 10,
-        velocidad: 2000
-    },
-    {
-        nombre: "Infierno II",
-        objetivo: "La oscuridad se acelera...",
-        puntosNecesarios: 15,
-        velocidad: 1500
-    },
-    {
-        nombre: "Juicio Final",
-        objetivo: "Solo los más rápidos sobreviven",
-        puntosNecesarios: 20,
-        velocidad: 1000
-    }
-];
 
 /* ==========================================
    HISTORIA
@@ -333,14 +370,17 @@ const GAME_PHASES = {
 
     HISTORIA_1: "historia1",
 
-    GRAVES: "graves",
+    AGUDAS: "agudas",
 
     HISTORIA_2: "historia2",
+
+    GRAVES: "graves",
+
+    HISTORIA_3: "historia3",
 
     ESDRUJULAS: "esdrujulas",
 
     FINAL: "final"
-
 };
 
 /* ==========================================
@@ -363,6 +403,37 @@ function mezclarArray(array) {
     return copia;
 }
 
+
+const distractoresAgudas = [
+
+    ...palabrasGraves,
+    ...palabrasEsdrujulas
+
+];
+
+const distractoresGraves = [
+
+    ...palabrasAgudas,
+    ...palabrasEsdrujulas
+
+];
+
+const distractoresEsdrujulas = [
+
+    ...palabrasAgudas,
+    ...palabrasGraves
+
+];
+
+const distractoresSobreesdrujulas = [
+
+    ...palabrasAgudas,
+    ...palabrasGraves,
+    ...palabrasEsdrujulas
+
+];
+
+
 /* ==========================================
    GENERAR PALABRAS DE UN NIVEL
 ========================================== */
@@ -372,42 +443,111 @@ function generarPalabrasNivel(tipo, nivel) {
     let correctas = [];
     let incorrectas = [];
 
-    if (tipo === "graves") {
+    switch (tipo) {
 
-        correctas =
-            mezclarArray(palabrasGraves)
-            .slice(0, nivel.cantidadCorrectas);
+        case "agudas":
 
-    } else {
+            correctas = mezclarArray(palabrasAgudas)
+                .slice(0, nivel.cantidadCorrectas);
 
-        correctas =
-            mezclarArray(palabrasEsdrujulas)
-            .slice(0, nivel.cantidadCorrectas);
+            incorrectas = mezclarArray(distractoresAgudas)
+                .slice(0, nivel.cantidadDistractores);
+
+            break;
+
+        case "graves":
+
+            correctas = mezclarArray(palabrasGraves)
+                .slice(0, nivel.cantidadCorrectas);
+
+            incorrectas = mezclarArray(distractoresGraves)
+                .slice(0, nivel.cantidadDistractores);
+
+            break;
+
+        case "esdrujulas":
+
+            correctas = mezclarArray(palabrasEsdrujulas)
+                .slice(0, nivel.cantidadCorrectas);
+
+            incorrectas = mezclarArray(distractoresEsdrujulas)
+                .slice(0, nivel.cantidadDistractores);
+
+            break;
+
+        case "sobreesdrujulas":
+
+            correctas = mezclarArray(sobreesdrujulas)
+                .slice(0, nivel.cantidadCorrectas);
+
+            incorrectas = mezclarArray(distractoresSobreesdrujulas)
+                .slice(0, nivel.cantidadDistractores);
+
+            break;
     }
 
-    incorrectas =
-        mezclarArray(distractores)
-        .slice(0, nivel.cantidadDistractores);
+    
+    incorrectas = incorrectas.filter(
+        palabra => !correctas.includes(palabra)
+    );
 
     const resultado = [];
 
     correctas.forEach(p => {
-
         resultado.push({
             texto: p,
             correcta: true
         });
-
     });
 
     incorrectas.forEach(p => {
-
         resultado.push({
             texto: p,
             correcta: false
         });
-
     });
 
     return mezclarArray(resultado);
 }
+
+
+/* ==========================================
+   PISTAS POR NIVEL
+========================================== */
+
+const pistas = {
+
+    agudas: {
+
+        titulo: "Palabras Agudas",
+
+        texto:
+            "Las palabras agudas tienen la fuerza de voz en la última sílaba. " +
+            "Ejemplos: ca-fé, can-tar, pa-pel, re-loj."
+    },
+
+    graves: {
+        titulo: "Palabras Graves",
+        texto:
+            "Las palabras graves tienen la fuerza de voz en la penúltima sílaba. " +
+            "Ejemplos: CA-sa, ME-sa, RO-bot, RE-loj."
+    },
+
+    esdrujulas: {
+        titulo: "Palabras Esdrújulas",
+        texto:
+            "Las palabras esdrújulas tienen la fuerza de voz en la antepenúltima sílaba y SIEMPRE llevan tilde. " +
+            "Ejemplos: MÚ-si-ca, TE-lé-fo-no, BRÚ-ju-la."
+    },
+
+    sobreesdrujulas: {
+        titulo: "Palabras Sobreesdrújulas",
+        texto:
+            "Las palabras sobreesdrújulas tienen la fuerza de voz antes de la antepenúltima sílaba y siempre llevan tilde. " +
+            "Ejemplos: DÍ-ga-me-lo, CUÉN-ta-me-lo, EX-PLÍ-ca-me-lo."
+    }
+
+};
+
+
+

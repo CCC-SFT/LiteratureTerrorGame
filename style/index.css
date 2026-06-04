@@ -197,6 +197,8 @@ body {
 
     box-shadow:
         0 0 30px rgba(255,0,0,.08);
+
+    position: relative;
 }
 
 .panel h1,
@@ -392,6 +394,29 @@ body {
         transform: scale(1);
     }
 }
+
+
+#instructionsImage {
+
+    position: absolute;
+
+    top: 60px;
+    bottom: 15px;
+    right: 40px;
+
+    width: 180px;
+    height: auto;
+
+    border-radius: 12px;
+
+    border: 2px solid rgba(255,0,0,.3);
+
+    box-shadow:
+        0 0 15px rgba(255,0,0,.4);
+
+    object-fit: cover;
+}
+
 
 /* ======================================
    OBJETIVO

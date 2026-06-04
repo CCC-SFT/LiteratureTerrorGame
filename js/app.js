@@ -112,7 +112,7 @@ function reproducirAmbiente() {
 
 function clickSound() {
 
-    const audio = new Audio("audio/click.mp3");
+    const audio = new Audio("./sounds/silent.mp3");
 
     audio.volume = 0.3;
 
@@ -126,5 +126,56 @@ function clickSound() {
 window.addEventListener("error", (e) => {
 
     console.log("Error capturado:", e.message);
+
+});
+
+
+/* ==========================================
+   PISTAS POR NIVEL
+========================================== */
+
+function mostrarPista() {
+
+    let info;
+
+    switch (faseActual) {
+
+        case GAME_PHASES.AGUDAS:
+            info = pistas.agudas;
+            break;
+
+        case GAME_PHASES.GRAVES:
+            info = pistas.graves;
+            break;
+
+        case GAME_PHASES.ESDRUJULAS:
+            info = pistas.esdrujulas;
+            break;
+
+        case GAME_PHASES.SOBREEESDRUJULAS:
+            info = pistas.sobreesdrujulas;
+            break;
+
+        default:
+            return;
+    }
+
+    hintTitle.textContent = info.titulo;
+    hintText.textContent = info.texto;
+
+    hintModal.classList.remove("hidden");
+}
+
+const hintBtn = document.getElementById("hintBtn");
+const hintModal = document.getElementById("hintModal");
+const hintTitle = document.getElementById("hintTitle");
+const hintText = document.getElementById("hintText");
+const closeHintBtn = document.getElementById("closeHintBtn");
+
+hintBtn.addEventListener("click", mostrarPista);
+
+closeHintBtn.addEventListener("click", () => {
+    hintModal.classList.add("hidden");
+    
 
 });

@@ -17,12 +17,34 @@ const scoreEl = document.getElementById("score");
 const levelEl = document.getElementById("currentLevel");
 const objectiveEl = document.getElementById("objectiveText");
 
+
+/* ==========================================
+   INICIAR FASE AGUDAS
+========================================== */
+
+function iniciarFaseAgudas() {
+
+    tipoActual = "agudas";
+    faseActual = GAME_PHASES.AGUDAS;
+
+    nivelActual = 0;
+    puntos = 0;
+
+    iniciarVidas();
+
+    cargarNivel(
+        nivelesAgudas[nivelActual],
+        "agudas"
+    );
+}
+
 /* ==========================================
    INICIAR FASE GRAVES
 ========================================== */
 
 function iniciarFaseGraves() {
     tipoActual = "graves";
+    faseActual = GAME_PHASES.GRAVES;
     nivelActual = 0;
     puntos = 0;
     iniciarVidas();
@@ -35,6 +57,7 @@ function iniciarFaseGraves() {
 
 function iniciarFaseEsdrujulas() {
     tipoActual = "esdrujulas";
+    faseActual = GAME_PHASES.ESDRUJULAS;
     nivelActual = 0;
     puntos = 0;
     iniciarVidas();
@@ -49,7 +72,7 @@ function iniciarFaseEsdrujulas() {
 function iniciarFaseEsdrujulasFinal() {
 
     tipoActual = "sobreesdrujulas";
-
+    faseActual = GAME_PHASES.SOBREEESDRUJULAS;
     nivelActual = 0;
     puntos = 0;
 
@@ -99,6 +122,7 @@ function obtenerTipoActual() {
 }
 function obtenerNivelActual() {
 
+    if (tipoActual === "agudas") return nivelesAgudas[nivelActual];
     if (tipoActual === "graves") return nivelesGraves[nivelActual];
     if (tipoActual === "esdrujulas") return nivelesEsdrujulas[nivelActual];
     if (tipoActual === "sobreesdrujulas") return nivelesSobreesdrujulas[nivelActual];
@@ -219,40 +243,85 @@ function siguienteNivel(tipo) {
 
     setTimeout(() => {
 
-        if (tipo === "graves") {
+        /* =========================
+           AGUDAS
+        ========================= */
+        if (tipo === "agudas") {
+
+            if (nivelActual < nivelesAgudas.length) {
+
+                cargarNivel(
+                    nivelesAgudas[nivelActual],
+                    "agudas"
+                );
+
+            } else {
+
+                completarAgudas();
+            }
+
+        }
+
+        /* =========================
+           GRAVES
+        ========================= */
+        else if (tipo === "graves") {
 
             if (nivelActual < nivelesGraves.length) {
 
-                cargarNivel(nivelesGraves[nivelActual], "graves");
+                cargarNivel(
+                    nivelesGraves[nivelActual],
+                    "graves"
+                );
 
             } else {
 
                 completarGraves();
             }
 
-        } else if (tipo === "esdrujulas") {
+        }
+
+        /* =========================
+           ESDRÚJULAS
+        ========================= */
+        else if (tipo === "esdrujulas") {
 
             if (nivelActual < nivelesEsdrujulas.length) {
 
-                cargarNivel(nivelesEsdrujulas[nivelActual], "esdrujulas");
+                cargarNivel(
+                    nivelesEsdrujulas[nivelActual],
+                    "esdrujulas"
+                );
 
             } else {
 
                 completarEsdrujulas();
             }
 
-        } else if (tipo === "sobreesdrujulas") {
+        }
+
+        /* =========================
+           SOBREESDRÚJULAS
+        ========================= */
+        else if (tipo === "sobreesdrujulas") {
 
             if (nivelActual < nivelesSobreesdrujulas.length) {
 
-                cargarNivel(nivelesSobreesdrujulas[nivelActual], "sobreesdrujulas");
+                cargarNivel(
+                    nivelesSobreesdrujulas[nivelActual],
+                    "sobreesdrujulas"
+                );
 
             } else {
 
-                mostrarTransicion("Has dominado el infierno final...");
+                mostrarTransicion(
+                    "Has dominado el infierno final..."
+                );
 
                 setTimeout(() => {
+
                     completarEsdrujulasFinal();
+
                 }, CONFIG.tiempoTransicion);
             }
         }

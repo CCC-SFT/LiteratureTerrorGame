@@ -69,6 +69,9 @@ function actualizarTitulo() {
     }
 }
 
+
+
+
 /* ==========================================
    SIGUIENTE PÁGINA
 ========================================== */
@@ -85,7 +88,8 @@ function siguientePagina() {
             paginaActual++;
             actualizarPagina();
         } else {
-            mostrarModalGraves();
+            mostrarModalAgudas();
+            
         }
 
         return;
@@ -101,7 +105,8 @@ function siguientePagina() {
             paginaActual++;
             actualizarPagina();
         } else {
-            mostrarModalEsdrujulas();
+            mostrarModalGraves();
+            
         }
 
         return;
@@ -117,7 +122,8 @@ function siguientePagina() {
             paginaActual++;
             actualizarPagina();
         } else {
-            mostrarModalEsdrujulasFinal();
+            mostrarModalEsdrujulas();
+           // mostrarModalEsdrujulasFinal();
         }
 
         return;
@@ -157,6 +163,37 @@ function paginaAnterior() {
         actualizarPagina();
     }
 }
+
+
+/* ==========================================
+   MODAL AGUDAS
+========================================== */
+
+
+function mostrarModalAgudas() {
+
+    modal.classList.remove("hidden");
+
+    modalTitle.textContent =
+        "Desafío: Palabras Agudas";
+
+    modalText.textContent =
+        "Para avanzar deberás identificar correctamente las palabras agudas.";
+
+    modalBtn.onclick = () => {
+
+        cerrarModal();
+        mostrarTransicion("Entrando en la maldición...");
+
+        setTimeout(() => {
+
+            mostrarPantalla("gameScreen");
+            iniciarFaseAgudas();
+
+        }, 1200);
+    };
+}
+
 
 /* ==========================================
    MODAL GRAVES
@@ -266,16 +303,37 @@ function iniciarHistoriaFinal() {
     actualizarPagina();
 }
 
+
+
+/* ==========================================
+   COMPLETAR AGUDAS
+========================================== */
+
+
+function completarAgudas() {
+
+    mostrarTransicion(
+        "Has sobrevivido al primer horror..."
+    );
+
+    setTimeout(() => {
+
+        iniciarHistoria2();
+
+    }, CONFIG.tiempoTransicion);
+}
+
+
 /* ==========================================
    COMPLETAR GRAVES
 ========================================== */
 
 function completarGraves() {
 
-    mostrarTransicion("Has sobrevivido al primer horror...");
+    mostrarTransicion("Has sobrevivido al segundo horror...");
 
     setTimeout(() => {
-        iniciarHistoria2();
+        iniciarHistoria3();
     }, CONFIG.tiempoTransicion);
 }
 
@@ -288,7 +346,7 @@ function completarEsdrujulas() {
     mostrarTransicion("La maldición se profundiza...");
 
     setTimeout(() => {
-        iniciarHistoria3();
+        iniciarHistoriaFinal();
     }, CONFIG.tiempoTransicion);
 }
 
