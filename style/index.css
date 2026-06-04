@@ -398,14 +398,14 @@ body {
 
 #instructionsImage {
 
-    position: absolute;
+    display: block;
 
-    top: 60px;
-    bottom: 15px;
-    right: 40px;
+    width: 100%;
+    max-width: 300px;
 
-    width: 180px;
     height: auto;
+
+    margin: 25px auto;
 
     border-radius: 12px;
 
@@ -658,6 +658,32 @@ body {
         font-size: 1.8rem;
         text-align: center;
         padding: 0 10px;
+    }
+
+    #instructionsScreen {
+        align-items: flex-start;
+        overflow-y: auto;
+        padding: 15px;
+    }
+
+    .panel {
+        width: 100%;
+        max-width: 100%;
+        padding: 20px;
+        margin: 15px 0;
+    }
+
+    #instructionsImage {
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+        display: block;
+        margin: 20px auto;
+    }
+
+    .panel {
+
+        padding: 25px;
     }
 }
 
