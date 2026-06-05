@@ -136,7 +136,7 @@ const nivelesAgudas = [
 
         objetivo: "Selecciona las palabras AGUDAS",
 
-        velocidad: 14000,
+        velocidad: 200,
 
         cantidadCorrectas: 8,
 
@@ -152,7 +152,7 @@ const nivelesAgudas = [
 
         objetivo: "Selecciona las palabras AGUDAS",
 
-        velocidad: 10000,
+        velocidad: 100,
 
         cantidadCorrectas: 10,
 
@@ -168,7 +168,7 @@ const nivelesAgudas = [
 
         objetivo: "Selecciona las palabras AGUDAS",
 
-        velocidad: 7000,
+        velocidad: 30,
 
         cantidadCorrectas: 14,
 
@@ -191,7 +191,7 @@ const nivelesGraves = [
 
         objetivo: "Selecciona las palabras GRAVES",
 
-        velocidad: 14000,
+        velocidad: 200,
 
         cantidadCorrectas: 8,
 
@@ -207,7 +207,7 @@ const nivelesGraves = [
 
         objetivo: "Selecciona las palabras GRAVES",
 
-        velocidad: 10000,
+        velocidad: 100,
 
         cantidadCorrectas: 10,
 
@@ -223,7 +223,7 @@ const nivelesGraves = [
 
         objetivo: "Selecciona las palabras GRAVES",
 
-        velocidad: 7000,
+        velocidad: 30,
 
         cantidadCorrectas: 14,
 
@@ -249,7 +249,7 @@ const nivelesEsdrujulas = [
 
         objetivo: "Selecciona las palabras ESDRÚJULAS",
 
-        velocidad: 12000,
+        velocidad: 200,
 
         cantidadCorrectas: 8,
 
@@ -265,7 +265,7 @@ const nivelesEsdrujulas = [
 
         objetivo: "Selecciona las palabras ESDRÚJULAS",
 
-        velocidad: 9000,
+        velocidad: 100,
 
         cantidadCorrectas: 10,
 
@@ -281,7 +281,7 @@ const nivelesEsdrujulas = [
 
         objetivo: "Selecciona las palabras ESDRÚJULAS",
 
-        velocidad: 6000,
+        velocidad: 30,
 
         cantidadCorrectas: 14,
 

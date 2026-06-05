@@ -396,26 +396,7 @@ body {
 }
 
 
-#instructionsImage {
 
-    display: block;
-
-    width: 100%;
-    max-width: 300px;
-
-    height: auto;
-
-    margin: 25px auto;
-
-    border-radius: 12px;
-
-    border: 2px solid rgba(255,0,0,.3);
-
-    box-shadow:
-        0 0 15px rgba(255,0,0,.4);
-
-    object-fit: cover;
-}
 
 
 /* ======================================
@@ -602,6 +583,46 @@ body {
     }
 }
 
+
+
+
+/* ======================================
+   INSTRUCCIONES
+====================================== */
+
+.instructions-panel {
+    max-width: 1000px;
+}
+
+.instructions-content {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 40px;
+}
+
+.instructions-text {
+    flex: 1;
+}
+
+.instructions-image {
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+#continueBtn {
+    margin-top: 25px;
+}
+
+
 /* ======================================
    RESPONSIVE
 ====================================== */
@@ -673,18 +694,41 @@ body {
         margin: 15px 0;
     }
 
+    .instructions-content {
+
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
     #instructionsImage {
+
         width: 100%;
-        max-width: 280px;
-        height: auto;
-        display: block;
-        margin: 20px auto;
+
+        max-width: 250px;
+
+        margin: 0 auto;
     }
 
-    .panel {
-
-        padding: 25px;
+    #continueBtn {
+        width: 100%;
     }
+}
+
+#instructionsImage {
+
+    width: 220px;
+
+    max-width: 100%;
+
+    height: auto;
+
+    border-radius: 15px;
+
+    border: 2px solid rgba(255,0,0,.3);
+
+    box-shadow:
+        0 0 15px rgba(255,0,0,.4);
 }
 
 
